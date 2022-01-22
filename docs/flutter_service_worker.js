@@ -3,7 +3,14 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "431be2033d7c393e4c9731cf4797191d",
+  "assets/AssetManifest.json": "8cd15bf1b4663dfdc7330a48c25f2250",
+"assets/assets/assets_app_conversas/greg.jpg": "b779eca12905edb571bcf6ddaad660b5",
+"assets/assets/assets_app_conversas/james.jpg": "402022abfd4b631c3093c0f2054e4a06",
+"assets/assets/assets_app_conversas/john.jpg": "51a3470387263a30e35e4414eef1f7d4",
+"assets/assets/assets_app_conversas/olivia.jpg": "4cdcd080fdd00244b5db3e33a86ab1c2",
+"assets/assets/assets_app_conversas/sam.jpg": "cf523967089ecc2735e2ed3b045fe938",
+"assets/assets/assets_app_conversas/sophia.jpg": "3b8e96b326f7ec46ff5df0012b023586",
+"assets/assets/assets_app_conversas/steven.jpg": "0f009026daa99305e0fb7335717a1594",
 "assets/assets/assets_app_floricultura/icons/back_arrow.svg": "c35b3f97779bff7b669938acb7b7ad93",
 "assets/assets/assets_app_floricultura/icons/icon_2.svg": "b74115c161dd696370af47f48c1ef148",
 "assets/assets/assets_app_floricultura/icons/icon_3.svg": "cddbcb223ffa19a4d1faf8ba0aabef6a",
@@ -41,9 +48,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "6e9adaa5c784776154b6904191bc8fef",
-"/": "6e9adaa5c784776154b6904191bc8fef",
-"main.dart.js": "3909c1d76f8e56b4b3bef208c2248d97",
+"index.html": "d2671454db23d44ad11554ed77bf4507",
+"/": "d2671454db23d44ad11554ed77bf4507",
+"main.dart.js": "c1570fe00971e99cb220b9e6485c4de2",
 "manifest.json": "4799dacd3311c6f6e3955e9d8bd21631",
 "version.json": "0eb1bf94f7d9fe4998d7abb42d8bf229"
 };
