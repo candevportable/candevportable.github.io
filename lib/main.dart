@@ -1,3 +1,4 @@
+import 'package:candev_portfolio/app_conversas/screens/home_conversas.dart';
 import 'package:flutter/material.dart';
 
 import '/app_floricultura/screens/home/home_floricultura.dart';
@@ -51,11 +52,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => Navigator.push(
                     context, MaterialPageRoute(builder: (_) => HomeViagens())),
                 child: Text('App de Viagens')),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             ElevatedButton(
-                onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => HomeFloricultura())),
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => HomeFloricultura())),
                 child: Text('App de Floricultura')),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => HomeConversas())),
+                child: Text('App de Conversas')),
           ],
         ),
       ),
