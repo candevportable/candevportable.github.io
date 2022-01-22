@@ -1,5 +1,7 @@
-import 'package:candev_portfolio/app_viagens/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+
+import '/app_floricultura/screens/home/home_floricultura.dart';
+import '/app_viagens/screens/home_viagens.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,8 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => HomeScreen())),
-                child: Text('App de Viagens'))
+                    context, MaterialPageRoute(builder: (_) => HomeViagens())),
+                child: Text('App de Viagens')),
+            SizedBox(height: 20,),
+            ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => HomeFloricultura())),
+                child: Text('App de Floricultura')),
           ],
         ),
       ),
