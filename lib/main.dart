@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vertical_card_pager/vertical_card_pager.dart';
 
 import '/app_conversas/screens/home_conversas.dart';
 import '/app_loja_bolsas/screens/home/home_loja_bolsas.dart';
@@ -12,7 +13,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  final String title = 'Portifólio da Candev';
+  final String title = 'CanDev';
 
   @override
   Widget build(BuildContext context) {
@@ -41,46 +42,68 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final List<String> titles = [
+      "Loja de Flores",
+      "Viagens",
+      "Conversas",
+      "Loja de Bolsas"
+    ];
+    final List<Widget> thumbnails = [
+      Container(
+        color: Color(0XFF0C9869),
+        child: Image.asset("assets/assets/Loja_de_Flores.png"),
+      ),
+      Container(
+        color: Colors.white,
+        child: Image.asset("assets/assets/Viagens.png"),
+      ),
+      Container(
+        color: Color(0XFFF44336),
+        child: Image.asset("assets/assets/Conversas.png"),
+      ),
+      Container(
+        color: Color(0XFF3D82AE),
+        child: Image.asset("assets/assets/Loja_de_Bolsas.png"),
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Center(child: Text(widget.title, style: TextStyle(color: Colors.black, fontFamily: "Bevan"),)),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-                onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => HomeViagens())),
-                child: Text('App de Viagens')),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => HomeFloricultura())),
-                child: Text('App de Floricultura')),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => HomeConversas())),
-                child: Text('App de Conversas')),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => HomeLojaBolsas())),
-                child: Text('App de Loja de Bolsas')),
-          ],
+      body: SafeArea(
+        child: VerticalCardPager(
+          textStyle: TextStyle(fontFamily: "Bevan", color: Colors.black87),
+          titles: titles,
+          images: thumbnails,
+          initialPage: 1,
+          onSelectedItem: (index) {
+            switch (index) {
+              case 0:
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => HomeFloricultura()));
+                break;
+              case 1:
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => HomeViagens()));
+                break;
+              case 2:
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => HomeConversas()));
+                break;
+              case 3:
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => HomeLojaBolsas()));
+            }
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Increment',
         onPressed: () {},
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.message),
       ),
     );
   }
