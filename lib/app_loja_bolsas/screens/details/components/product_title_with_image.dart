@@ -29,14 +29,16 @@ class ProductTitleWithImage extends StatelessWidget {
                 .headline4
                 ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          //SizedBox(height: kDefaultPaddin),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: "\nPreço:\n", style: TextStyle(fontWeight: FontWeight.w600)),
+                    TextSpan(
+                        text: "\nPreço:\n",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, color: Colors.white)),
                     TextSpan(
                       text: "R\$ ${product.price}",
                       style: Theme.of(context).textTheme.headline4?.copyWith(

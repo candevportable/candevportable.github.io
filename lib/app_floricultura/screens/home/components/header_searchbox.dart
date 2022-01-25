@@ -77,13 +77,10 @@ class HeaderSearchBox extends StatelessWidget {
                         ),
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
-                        // suffix isn't working properly  with SVG
-                        // thats why we use row
-                        // suffixIcon: SvgPicture.asset("assets/icons/search.svg"),
                       ),
                     ),
                   ),
-                  SvgPicture.asset("assets/icons/search.svg"),
+                  SvgPicture.asset("assets/assets_app_floricultura/icons/search.svg"),
                 ],
               ),
             ),
