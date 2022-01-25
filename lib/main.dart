@@ -1,6 +1,7 @@
-import 'package:candev_portfolio/app_conversas/screens/home_conversas.dart';
 import 'package:flutter/material.dart';
 
+import '/app_conversas/screens/home_conversas.dart';
+import '/app_loja_bolsas/screens/home/home_loja_bolsas.dart';
 import '/app_floricultura/screens/home/home_floricultura.dart';
 import '/app_viagens/screens/home_viagens.dart';
 
@@ -66,6 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (_) => HomeConversas())),
                 child: Text('App de Conversas')),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => HomeLojaBolsas())),
+                child: Text('App de Loja de Bolsas')),
           ],
         ),
       ),
@@ -73,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         onPressed: () {},
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

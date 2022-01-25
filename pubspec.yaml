@@ -38,7 +38,7 @@ dependencies:
   # app viagens
   font_awesome_flutter: ^9.2.0
 
-  # app floricultura
+  # app floricultura/loja de bolsas
   flutter_svg: ^1.0.2
 
 dev_dependencies:
@@ -77,6 +77,10 @@ flutter:
 
     # app conversas
     - assets/assets_app_conversas/
+
+    # app loja de bolsas
+    - assets/assets_app_loja_bolsas/icons/
+    - assets/assets_app_loja_bolsas/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
