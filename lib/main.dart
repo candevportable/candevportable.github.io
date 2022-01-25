@@ -40,6 +40,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Color background = Colors.white;
+
+  void changeBackground(Color? bg) {
+    background = bg!;
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String> titles = [
@@ -68,10 +74,15 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
 
     return Scaffold(
+      backgroundColor: background,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: background,
         elevation: 0,
-        title: Center(child: Text(widget.title, style: TextStyle(color: Colors.black, fontFamily: "Bevan"),)),
+        title: Center(
+            child: Text(
+          widget.title,
+          style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
+        )),
       ),
       body: SafeArea(
         child: VerticalCardPager(
@@ -79,6 +90,25 @@ class _MyHomePageState extends State<MyHomePage> {
           titles: titles,
           images: thumbnails,
           initialPage: 1,
+          onPageChanged: (page) {
+            if (page! < 0.6) {
+              setState(() {
+                changeBackground(Color(0XFF0C9869));
+              });
+            } else if (0.6 < page && page < 1.6) {
+              setState(() {
+                changeBackground(Colors.white);
+              });
+            } else if (1.6 < page && page < 2.6) {
+              setState(() {
+                changeBackground(Color(0XFFF44336));
+              });
+            } else if (page > 2.6) {
+              setState(() {
+                changeBackground(Color(0XFF3D82AE));
+              });
+            }
+          },
           onSelectedItem: (index) {
             switch (index) {
               case 0:
