@@ -21,7 +21,9 @@ class _HomeConversasState extends State<HomeConversas> {
           icon: Icon(Icons.menu),
           iconSize: 30.0,
           color: Colors.white,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Center(
           child: Text(

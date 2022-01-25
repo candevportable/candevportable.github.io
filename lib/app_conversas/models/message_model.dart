@@ -2,8 +2,7 @@ import 'user_model.dart';
 
 class Message {
   final User sender;
-  final String?
-      time; // Would usually be type DateTime or Firebase Timestamp in production apps
+  final String? time;
   final String? text;
   final bool? isLiked;
   final bool? unread;
@@ -17,74 +16,75 @@ class Message {
   });
 }
 
-// YOU - current user
-final User currentUser =
-    User(id: 0, name: 'Current User', imageUrl: 'assets/assets_app_conversas/greg.jpg');
+final User currentUser = User(
+    id: 0,
+    name: 'Carlos',
+    imageUrl: 'assets/assets_app_conversas/greg.jpg');
 
-// USERS
-final User greg = User(id: 1, name: 'Greg', imageUrl: 'assets/assets_app_conversas/greg.jpg');
-final User james =
-    User(id: 2, name: 'James', imageUrl: 'assets/assets_app_conversas/james.jpg');
-final User john = User(id: 3, name: 'John', imageUrl: 'assets/assets_app_conversas/john.jpg');
-final User olivia =
-    User(id: 4, name: 'Olivia', imageUrl: 'assets/assets_app_conversas/olivia.jpg');
-final User sam = User(id: 5, name: 'Sam', imageUrl: 'assets/assets_app_conversas/sam.jpg');
-final User sophia =
-    User(id: 6, name: 'Sophia', imageUrl: 'assets/assets_app_conversas/sophia.jpg');
-final User steven =
-    User(id: 7, name: 'Steven', imageUrl: 'assets/assets_app_conversas/steven.jpg');
+final User greg =
+    User(id: 1, name: 'Jorge', imageUrl: 'assets/assets_app_conversas/greg.jpg');
+final User james = User(
+    id: 2, name: 'James', imageUrl: 'assets/assets_app_conversas/james.jpg');
+final User john =
+    User(id: 3, name: 'João', imageUrl: 'assets/assets_app_conversas/john.jpg');
+final User olivia = User(
+    id: 4, name: 'Olívia', imageUrl: 'assets/assets_app_conversas/olivia.jpg');
+final User sam =
+    User(id: 5, name: 'Sara', imageUrl: 'assets/assets_app_conversas/sam.jpg');
+final User sophia = User(
+    id: 6, name: 'Sophia', imageUrl: 'assets/assets_app_conversas/sophia.jpg');
+final User steven = User(
+    id: 7, name: 'Pedro', imageUrl: 'assets/assets_app_conversas/steven.jpg');
 
-// FAVORITE CONTACTS
-List<User> favorites = [sam, steven, olivia, john, greg];
+List<User> favorites = [sam, james, olivia, john, greg];
 
-// EXAMPLE CHATS ON HOME SCREEN
 List<Message> chats = [
   Message(
-    sender: james,
-    time: '5:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    sender: olivia,
+    time: '4:31 PM',
+    text: 'Assim ficou melhor?',
     isLiked: false,
     unread: true,
   ),
   Message(
-    sender: olivia,
-    time: '4:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    sender: james,
+    time: '3:45 PM',
+    text: 'Té fechado então, hoje o pau quebra',
     isLiked: false,
-    unread: true,
+    unread: false,
   ),
   Message(
     sender: john,
-    time: '3:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    time: '3:27 PM',
+    text: 'o James te chamou pro fut hoje né?',
     isLiked: false,
     unread: false,
   ),
   Message(
     sender: sophia,
-    time: '2:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    time: '2:12 PM',
+    text: 'Olá Carlos, como vai?',
     isLiked: false,
     unread: true,
   ),
   Message(
     sender: steven,
-    time: '1:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    time: '1:54 PM',
+    text: 'Olha, isso não é pra mim',
     isLiked: false,
-    unread: false,
+    unread: true,
   ),
   Message(
     sender: sam,
-    time: '12:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    time: '1:31 PM',
+    text: 'Desculpe pelo incômodo',
     isLiked: false,
-    unread: false,
+    unread: true,
   ),
   Message(
     sender: greg,
-    time: '11:30 AM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    time: '11:43 AM',
+    text: 'Valeu parceiro, até a próxima',
     isLiked: false,
     unread: false,
   ),
@@ -93,45 +93,52 @@ List<Message> chats = [
 // EXAMPLE MESSAGES IN CHAT SCREEN
 List<Message> messages = [
   Message(
-    sender: james,
-    time: '5:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: true,
-    unread: true,
-  ),
-  Message(
     sender: currentUser,
-    time: '4:30 PM',
-    text: 'Just walked my doge. She was super duper cute. The best pupper!!',
-    isLiked: false,
-    unread: true,
-  ),
-  Message(
-    sender: james,
     time: '3:45 PM',
-    text: 'How\'s the doggo?',
+    text: 'Té fechado então, hoje o pau quebra',
     isLiked: false,
-    unread: true,
-  ),
-  Message(
-    sender: james,
-    time: '3:15 PM',
-    text: 'All the food',
-    isLiked: true,
-    unread: true,
   ),
   Message(
     sender: currentUser,
-    time: '2:30 PM',
-    text: 'Nice! What kind of food did you eat?',
+    time: '3:45 PM',
+    text: 'Foi mal tava resolvendo um problema aqui',
     isLiked: false,
-    unread: true,
   ),
   Message(
     sender: james,
-    time: '2:00 PM',
-    text: 'I ate so much food today.',
+    time: '3:09 PM',
+    text:
+        'Oito em ponto começa, mas bora se encontrar na porta uns 15 min antes',
     isLiked: false,
-    unread: true,
+  ),
+  Message(
+    sender: currentUser,
+    time: '3:09 PM',
+    text: 'Massa, que horas?',
+    isLiked: false,
+  ),
+  Message(
+    sender: james,
+    time: '3:07 PM',
+    text: 'O plano é bater uma bola e dps tomar uma',
+    isLiked: true,
+  ),
+  Message(
+    sender: currentUser,
+    time: '2:41 PM',
+    text: 'Oq temos para hoje?',
+    isLiked: false,
+  ),
+  Message(
+    sender: currentUser,
+    time: '2:40 PM',
+    text: 'Fala James, tudo em cima irmão',
+    isLiked: false,
+  ),
+  Message(
+    sender: james,
+    time: '2:30 PM',
+    text: 'E aí Carlos, tranquilo?',
+    isLiked: true,
   ),
 ];

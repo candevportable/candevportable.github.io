@@ -9,19 +9,21 @@ class HomeFloricultura extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: Body(),
       bottomNavigationBar: BottomNavBar(),
     );
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(BuildContext context) {
     return AppBar(
       elevation: 0,
       backgroundColor: kPrimaryColor,
       leading: IconButton(
         icon: SvgPicture.asset("assets/assets_app_floricultura/icons/menu.svg"),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }
