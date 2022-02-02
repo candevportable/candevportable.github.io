@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 
 import '/app_conversas/screens/home_conversas.dart';
@@ -6,8 +7,12 @@ import '/app_loja_bolsas/screens/home/home_loja_bolsas.dart';
 import '/app_floricultura/screens/home/home_floricultura.dart';
 import '/app_viagens/screens/home_viagens.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp],
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -80,9 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0,
         title: Center(
             child: Text(
-          widget.title,
-          style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
-        )),
+              widget.title,
+              style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
+            )),
       ),
       body: SafeArea(
         child: VerticalCardPager(

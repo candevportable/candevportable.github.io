@@ -49,7 +49,7 @@ List<Message> chats = [
   Message(
     sender: james,
     time: '3:45 PM',
-    text: 'Té fechado então, hoje o pau quebra',
+    text: 'Tá fechado então, hoje o pau quebra',
     isLiked: false,
     unread: false,
   ),
@@ -95,7 +95,7 @@ List<Message> messages = [
   Message(
     sender: currentUser,
     time: '3:45 PM',
-    text: 'Té fechado então, hoje o pau quebra',
+    text: 'Tá fechado então, hoje o pau quebra',
     isLiked: false,
   ),
   Message(
