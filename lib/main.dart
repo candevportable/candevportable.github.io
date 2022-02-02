@@ -44,12 +44,29 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   Color background = Colors.white;
+  double carousselOpacity = 0.0;
 
-    void changeBackground(Color? bg) {
-      background = bg!;
-    }
+  void changeBackground(Color? bg) {
+    background = bg!;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(milliseconds: 1300), () {
+      setState(() {
+        carousselOpacity = 1;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
     final List<Widget> thumbnails = [
       Container(
         color: Color(0XFF0C9869),
-        child: background == Color(0XFF0C9869)? Container(
+        child: background == Color(0XFF0C9869)
+            ? Container(
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -72,13 +90,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.black.withOpacity(0.19),
                 ),
               ],
-              image:
-              DecorationImage(image: AssetImage("assets/assets/Loja_de_Flores.png")),
-            )) : Image.asset("assets/assets/Loja_de_Flores.png"),
+              image: DecorationImage(
+                  image: AssetImage("assets/assets/Loja_de_Flores.png")),
+            ))
+            : Image.asset("assets/assets/Loja_de_Flores.png"),
       ),
       Container(
         color: Colors.white,
-        child: background == Colors.white? Container(
+        child: background == Colors.white
+            ? Container(
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -87,13 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.black.withOpacity(0.19),
                 ),
               ],
-              image:
-              DecorationImage(image: AssetImage("assets/assets/Viagens.png")),
-            )) : Image.asset("assets/assets/Viagens.png"),
+              image: DecorationImage(
+                  image: AssetImage("assets/assets/Viagens.png")),
+            ))
+            : Image.asset("assets/assets/Viagens.png"),
       ),
       Container(
         color: Color(0XFFF44336),
-        child: background == Color(0XFFF44336)? Container(
+        child: background == Color(0XFFF44336)
+            ? Container(
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -102,13 +124,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.black.withOpacity(0.19),
                 ),
               ],
-              image:
-              DecorationImage(image: AssetImage("assets/assets/Conversas.png")),
-            )) : Image.asset("assets/assets/Conversas.png"),
+              image: DecorationImage(
+                  image: AssetImage("assets/assets/Conversas.png")),
+            ))
+            : Image.asset("assets/assets/Conversas.png"),
       ),
       Container(
         color: Color(0XFF3D82AE),
-        child: background == Color(0XFF3D82AE)? Container(
+        child: background == Color(0XFF3D82AE)
+            ? Container(
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -117,9 +141,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.black.withOpacity(0.19),
                 ),
               ],
-              image:
-              DecorationImage(image: AssetImage("assets/assets/Loja_de_Bolsas.png")),
-            )) : Image.asset("assets/assets/Loja_de_Bolsas.png"),
+              image: DecorationImage(
+                  image: AssetImage("assets/assets/Loja_de_Bolsas.png")),
+            ))
+            : Image.asset("assets/assets/Loja_de_Bolsas.png"),
       ),
     ];
 
@@ -130,54 +155,59 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0,
         title: Center(
             child: Text(
-          widget.title,
-          style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
-        )),
+              widget.title,
+              style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
+            )),
       ),
       body: SafeArea(
-        child: VerticalCardPager(
-          textStyle: TextStyle(fontFamily: "Bevan", color: Colors.black87),
-          titles: titles,
-          images: thumbnails,
-          initialPage: 1,
-          onPageChanged: (page) {
-            if (page! < 0.6) {
-              setState(() {
-                changeBackground(Color(0XFF0C9869));
-              });
-            } else if (0.6 < page && page < 1.6) {
-              setState(() {
-                changeBackground(Colors.white);
-              });
-            } else if (1.6 < page && page < 2.6) {
-              setState(() {
-                changeBackground(Color(0XFFF44336));
-              });
-            } else if (page > 2.6) {
-              setState(() {
-                changeBackground(Color(0XFF3D82AE));
-              });
-            }
-          },
-          onSelectedItem: (index) {
-            switch (index) {
-              case 0:
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => HomeFloricultura()));
-                break;
-              case 1:
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => HomeViagens()));
-                break;
-              case 2:
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => HomeConversas()));
-                break;
-              case 3:
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => HomeLojaBolsas()));
-            }
-          },
+        child: AnimatedOpacity(
+          opacity: carousselOpacity,
+          duration: Duration(seconds: 1),
+          child: VerticalCardPager(
+            textStyle: TextStyle(fontFamily: "Bevan", color: Colors.black87),
+            titles: titles,
+            images: thumbnails,
+            initialPage: 1,
+            onPageChanged: (page) {
+              if (page! < 0.6) {
+                setState(() {
+                  changeBackground(Color(0XFF0C9869));
+                });
+              } else if (0.6 < page && page < 1.6) {
+                setState(() {
+                  changeBackground(Colors.white);
+                });
+              } else if (1.6 < page && page < 2.6) {
+                setState(() {
+                  changeBackground(Color(0XFFF44336));
+                });
+              } else if (page > 2.6) {
+                setState(() {
+                  changeBackground(Color(0XFF3D82AE));
+                });
+              }
+            },
+            onSelectedItem: (index) {
+              switch (index) {
+                case 0:
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => HomeFloricultura()));
+                  break;
+                case 1:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => HomeViagens()));
+                  break;
+                case 2:
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => HomeConversas()));
+                  break;
+                case 3:
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => HomeLojaBolsas()));
+              }
+            },
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
