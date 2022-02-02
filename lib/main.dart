@@ -9,8 +9,8 @@ import '/app_viagens/screens/home_viagens.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp],
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
   );
   runApp(MyApp());
 }
@@ -47,9 +47,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Color background = Colors.white;
 
-  void changeBackground(Color? bg) {
-    background = bg!;
-  }
+    void changeBackground(Color? bg) {
+      background = bg!;
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -59,22 +59,67 @@ class _MyHomePageState extends State<MyHomePage> {
       "Conversas",
       "Loja de Bolsas"
     ];
+
     final List<Widget> thumbnails = [
       Container(
         color: Color(0XFF0C9869),
-        child: Image.asset("assets/assets/Loja_de_Flores.png"),
+        child: background == Color(0XFF0C9869)? Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 10),
+                  blurRadius: 120,
+                  color: Colors.black.withOpacity(0.19),
+                ),
+              ],
+              image:
+              DecorationImage(image: AssetImage("assets/assets/Loja_de_Flores.png")),
+            )) : Image.asset("assets/assets/Loja_de_Flores.png"),
       ),
       Container(
         color: Colors.white,
-        child: Image.asset("assets/assets/Viagens.png"),
+        child: background == Colors.white? Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 10),
+                  blurRadius: 120,
+                  color: Colors.black.withOpacity(0.19),
+                ),
+              ],
+              image:
+              DecorationImage(image: AssetImage("assets/assets/Viagens.png")),
+            )) : Image.asset("assets/assets/Viagens.png"),
       ),
       Container(
         color: Color(0XFFF44336),
-        child: Image.asset("assets/assets/Conversas.png"),
+        child: background == Color(0XFFF44336)? Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 10),
+                  blurRadius: 120,
+                  color: Colors.black.withOpacity(0.19),
+                ),
+              ],
+              image:
+              DecorationImage(image: AssetImage("assets/assets/Conversas.png")),
+            )) : Image.asset("assets/assets/Conversas.png"),
       ),
       Container(
         color: Color(0XFF3D82AE),
-        child: Image.asset("assets/assets/Loja_de_Bolsas.png"),
+        child: background == Color(0XFF3D82AE)? Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 10),
+                  blurRadius: 120,
+                  color: Colors.black.withOpacity(0.19),
+                ),
+              ],
+              image:
+              DecorationImage(image: AssetImage("assets/assets/Loja_de_Bolsas.png")),
+            )) : Image.asset("assets/assets/Loja_de_Bolsas.png"),
       ),
     ];
 
@@ -85,9 +130,9 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0,
         title: Center(
             child: Text(
-              widget.title,
-              style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
-            )),
+          widget.title,
+          style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
+        )),
       ),
       body: SafeArea(
         child: VerticalCardPager(
