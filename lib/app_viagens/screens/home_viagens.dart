@@ -1,3 +1,5 @@
+import 'package:flutter_svg/flutter_svg.dart';
+
 import '../configs/app_constants.dart';
 import 'package:flutter/material.dart';
 import '../widgets/destination_carousel.dart';
@@ -54,15 +56,31 @@ class _HomeViagensState extends State<HomeViagens> {
         child: ListView(
           padding: EdgeInsets.symmetric(vertical: 30.0),
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 120.0),
-              child: Text(
-                'Aonde você gostaria de ir?',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    'Aonde você\ngostaria de ir?',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(right: 10.0),
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: SvgPicture.asset(
+                        "assets/assets_app_viagens/menu.svg",
+                        color: Colors.black,
+                      )),
+                ),
+              ],
             ),
             SizedBox(height: 20.0),
             Row(
@@ -72,7 +90,7 @@ class _HomeViagensState extends State<HomeViagens> {
                   .entries
                   .map(
                     (MapEntry map) => _buildIcon(map.key),
-              )
+                  )
                   .toList(),
             ),
             SizedBox(height: 20.0),
