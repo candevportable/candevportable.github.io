@@ -14,9 +14,12 @@ class HomeLojaRoupas extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [CustomAppBar(), SearchInput(), NewArrival(), BestSell()],
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [CustomAppBar(), SearchInput(), NewArrival(), BestSell()],
+          ),
         )),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
