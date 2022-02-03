@@ -13,7 +13,7 @@ class DestinationCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _destinationCardAnimation = Tween(begin: 0.0, end: 300.0).animate(CurvedAnimation(
-        parent: _controller, curve: Interval(0.7, 1.0, curve: Curves.easeOut)));
+        parent: _controller, curve: Interval(0.6, 1.0, curve: Curves.easeOut)));
 
     return Column(
       children: <Widget>[

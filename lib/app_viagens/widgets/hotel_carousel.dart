@@ -11,7 +11,7 @@ class HotelCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _hotelCardAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-    parent: _controller, curve: Interval(0.4, 0.75, curve: Curves.easeOut)));
+    parent: _controller, curve: Interval(0.3, 0.65, curve: Curves.easeOut)));
 
     return Column(
       children: <Widget>[
