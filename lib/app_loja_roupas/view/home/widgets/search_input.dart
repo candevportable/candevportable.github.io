@@ -3,8 +3,53 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class SearchInput extends StatelessWidget {
-  final tagList = ['Feminino', "Camiseta", "Vestido"];
+class SearchInput extends StatefulWidget {
+  @override
+  State<SearchInput> createState() => _SearchInputState();
+}
+
+class _SearchInputState extends State<SearchInput> {
+  final tagList = ['Feminino', 'Camiseta', 'Casaco', 'Masculino', 'Vestido'];
+
+  List<String> filters = <String>['Casaco'];
+
+  Widget _buildChip(String label) {
+    return FilterChip(
+      labelPadding: EdgeInsets.all(2.0),
+      avatar: CircleAvatar(
+        backgroundColor: Colors.white70,
+        child: Text(label[0].toUpperCase()),
+      ),
+      label: Text(
+        label,
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+      backgroundColor: kAccentColor,
+      elevation: 4.0,
+      shadowColor: Colors.grey[60],
+      selectedShadowColor: Colors.white,
+      padding: EdgeInsets.all(8.0),
+      selected: filters.contains(label),
+      selectedColor: kPrimaryColor,
+      onSelected: (bool selected) {
+        setState(() {
+          if (selected) {
+            filters.add(label);
+          } else {
+            filters.removeWhere((element) => element == label);
+          }
+        });
+      },
+    );
+  }
+
+  chipList() {
+    return Wrap(
+        spacing: 10.0,
+        children: tagList.map((e) => _buildChip(e)).toList());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +72,9 @@ class SearchInput extends StatelessWidget {
                       hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
                       prefixIcon: Container(
                         padding: EdgeInsets.all(15),
-                        child:
-                            Image.asset('assets/assets_app_loja_roupas/icons/search.png', width: 20),
+                        child: Image.asset(
+                            'assets/assets_app_loja_roupas/icons/search.png',
+                            width: 20),
                       )),
                 ),
               ),
@@ -38,22 +84,13 @@ class SearchInput extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: kPrimaryColor,
                     borderRadius: BorderRadius.circular(15)),
-                child: Image.asset('assets/assets_app_loja_roupas/icons/filter.png', width: 25),
+                child: Image.asset(
+                    'assets/assets_app_loja_roupas/icons/filter.png',
+                    width: 25),
               )
             ],
           ),
-          Row(
-            children: tagList
-                .map((e) => Container(
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(top: 10, right: 10),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: kAccentColor),
-                      child: Text(e, style: TextStyle(color: Colors.grey)),
-                    ))
-                .toList(),
-          )
+          chipList()
         ],
       ),
     );
