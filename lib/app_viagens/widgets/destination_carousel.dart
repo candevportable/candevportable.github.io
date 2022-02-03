@@ -5,8 +5,16 @@ import '../screens/destination_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DestinationCarousel extends StatelessWidget {
+  DestinationCarousel(this._controller);
+
+  final AnimationController _controller;
+  late Animation _destinationCardAnimation;
+
   @override
   Widget build(BuildContext context) {
+    _destinationCardAnimation = Tween(begin: 0.0, end: 300.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.7, 1.0, curve: Curves.easeOut)));
+
     return Column(
       children: <Widget>[
         Padding(
@@ -38,7 +46,7 @@ class DestinationCarousel extends StatelessWidget {
           ),
         ),
         Container(
-          height: 300.0,
+          height: _destinationCardAnimation.value,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: destinations.length,

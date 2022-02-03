@@ -1,17 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lottie/lottie.dart';
 
 import '../configs/app_constants.dart';
-import 'package:flutter/material.dart';
 import '../widgets/destination_carousel.dart';
 import '../widgets/hotel_carousel.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeViagens extends StatefulWidget {
   @override
   _HomeViagensState createState() => _HomeViagensState();
 }
 
-class _HomeViagensState extends State<HomeViagens> {
+class _HomeViagensState extends State<HomeViagens>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation _titleAnimation;
+  late Animation _menuAnimation;
+  late Animation _borderIconAnimation;
+  late Animation _iconAnimation;
+
+  bool _airplane = true;
+
   int _selectedIndex = 0;
   int _currentTab = 0;
   final List<IconData> _icons = [
@@ -29,8 +40,8 @@ class _HomeViagensState extends State<HomeViagens> {
         });
       },
       child: Container(
-        height: 60.0,
-        width: 60.0,
+        height: _borderIconAnimation.value,
+        width: _borderIconAnimation.value,
         decoration: BoxDecoration(
           color: _selectedIndex == index
               ? Color(SECONDARY_COLOR)
@@ -39,7 +50,7 @@ class _HomeViagensState extends State<HomeViagens> {
         ),
         child: Icon(
           _icons[index],
-          size: 25.0,
+          size: _iconAnimation.value,
           color: _selectedIndex == index
               ? Color(PRIMARY_COLOR)
               : Color(0xFFB4C1C4),
@@ -49,88 +60,128 @@ class _HomeViagensState extends State<HomeViagens> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 4));
+
+    _titleAnimation = Tween(begin: 0.0, end: 30.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.0, 0.3, curve: Curves.easeOut)));
+    _menuAnimation = Tween(begin: 0.0, end: 24.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.0, 0.3, curve: Curves.easeOut)));
+    _borderIconAnimation = Tween(begin: 0.0, end: 60.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.3, 0.6, curve: Curves.easeOut)));
+    _iconAnimation = Tween(begin: 0.0, end: 25.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.3, 0.6, curve: Curves.easeOut)));
+
+    Future.delayed(Duration(seconds: 5), () {
+      setState(() {
+        _airplane = !_airplane;
+      });
+    }).then((value) => _controller.forward());
+
+    _controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(SCAFFOLD_BACKGROUND_COLOR),
-      body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 30.0),
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: Text(
-                    'Aonde você\ngostaria de ir?',
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+    return _airplane
+        ? Container(
+            color: Colors.white,
+            child: Lottie.asset(
+                "assets/assets_app_viagens/animated_airplane.json"))
+        : Scaffold(
+            backgroundColor: Color(SCAFFOLD_BACKGROUND_COLOR),
+            body: SafeArea(
+              child: ListView(
+                padding: EdgeInsets.symmetric(vertical: 30.0),
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20.0),
+                        child: Text(
+                          'Aonde você\ngostaria de ir?',
+                          style: TextStyle(
+                            fontSize: _titleAnimation.value,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: SvgPicture.asset(
+                              "assets/assets_app_viagens/menu.svg",
+                              width: _menuAnimation.value,
+                              color: Colors.black,
+                            )),
+                      ),
+                    ],
                   ),
+                  SizedBox(height: 20.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: _icons
+                        .asMap()
+                        .entries
+                        .map(
+                          (MapEntry map) => _buildIcon(map.key),
+                        )
+                        .toList(),
+                  ),
+                  SizedBox(height: 20.0),
+                  DestinationCarousel(_controller),
+                  SizedBox(height: 20.0),
+                  HotelCarousel(_controller),
+                ],
+              ),
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: _currentTab,
+              onTap: (int value) {
+                setState(() {
+                  _currentTab = value;
+                });
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.search,
+                    size: 30.0,
+                  ),
+                  title: SizedBox.shrink(),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(right: 10.0),
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: SvgPicture.asset(
-                        "assets/assets_app_viagens/menu.svg",
-                        color: Colors.black,
-                      )),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.local_pizza,
+                    size: 30.0,
+                  ),
+                  title: SizedBox.shrink(),
                 ),
+                BottomNavigationBarItem(
+                  icon: CircleAvatar(
+                    radius: 15.0,
+                    backgroundImage:
+                        NetworkImage('http://i.imgur.com/zL4Krbz.jpg'),
+                  ),
+                  title: SizedBox.shrink(),
+                )
               ],
             ),
-            SizedBox(height: 20.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: _icons
-                  .asMap()
-                  .entries
-                  .map(
-                    (MapEntry map) => _buildIcon(map.key),
-                  )
-                  .toList(),
-            ),
-            SizedBox(height: 20.0),
-            DestinationCarousel(),
-            SizedBox(height: 20.0),
-            HotelCarousel(),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentTab,
-        onTap: (int value) {
-          setState(() {
-            _currentTab = value;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              size: 30.0,
-            ),
-            title: SizedBox.shrink(),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.local_pizza,
-              size: 30.0,
-            ),
-            title: SizedBox.shrink(),
-          ),
-          BottomNavigationBarItem(
-            icon: CircleAvatar(
-              radius: 15.0,
-              backgroundImage: NetworkImage('http://i.imgur.com/zL4Krbz.jpg'),
-            ),
-            title: SizedBox.shrink(),
-          )
-        ],
-      ),
-    );
+          );
   }
 }

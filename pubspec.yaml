@@ -16,6 +16,7 @@ dependencies:
   vertical_card_pager: ^1.5.0
   hawk_fab_menu: ^1.1.1
   url_launcher: ^6.0.18
+  lottie: ^1.2.1
 
   # app viagens
   font_awesome_flutter: ^9.2.0
