@@ -244,11 +244,6 @@ class _MyHomePageState extends State<MyHomePage>
           ),
         ),
       ),
-      /*floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        onPressed: () {},
-        child: const Icon(Icons.message),
-      ),*/
     );
   }
 }

@@ -21,7 +21,7 @@ class HotelCarousel extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => print('See All'),
+                onTap: () {},
                 child: Text(
                   'Ver Todos',
                   style: TextStyle(
