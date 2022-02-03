@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../constants.dart';
 import '../../components/bottom_nav_bar.dart';
@@ -15,6 +16,8 @@ class _HomeFloriculturaState extends State<HomeFloricultura>
   late AnimationController _controller;
   late Animation menuAnimation;
 
+  bool _plant = true;
+
   @override
   void initState() {
     super.initState();
@@ -25,7 +28,11 @@ class _HomeFloriculturaState extends State<HomeFloricultura>
     menuAnimation = Tween(begin: 0.0, end: 24.0).animate(CurvedAnimation(
         parent: _controller, curve: Interval(0.0, 0.4, curve: Curves.easeOut)));
 
-    _controller.forward();
+    Future.delayed(Duration(seconds: 5), () {
+      setState(() {
+        _plant = !_plant;
+      });
+    }).then((value) => _controller.forward());
     _controller.addListener(() {
       setState(() {});
     });
@@ -39,11 +46,18 @@ class _HomeFloriculturaState extends State<HomeFloricultura>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(context),
-      body: Body(_controller),
-      bottomNavigationBar: BottomNavBar(),
-    );
+    return _plant
+        ? Container(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
+            color: Colors.white,
+            child: Lottie.asset(
+                "assets/assets_app_floricultura/icons/animated_plant.json"),
+          )
+        : Scaffold(
+            appBar: buildAppBar(context),
+            body: Body(_controller),
+            bottomNavigationBar: BottomNavBar(),
+          );
   }
 
   AppBar buildAppBar(BuildContext context) {
