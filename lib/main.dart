@@ -5,10 +5,11 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:hawk_fab_menu/hawk_fab_menu.dart';
 
-import '/app_conversas/screens/home_conversas.dart';
-import '/app_loja_bolsas/screens/home/home_loja_bolsas.dart';
-import '/app_floricultura/screens/home/home_floricultura.dart';
-import '/app_viagens/screens/home_viagens.dart';
+import 'app_conversas/screens/home_conversas.dart';
+import 'app_loja_bolsas/screens/home/home_loja_bolsas.dart';
+import 'app_floricultura/screens/home/home_floricultura.dart';
+import 'app_viagens/screens/home_viagens.dart';
+import 'app_loja_roupas/view/home/home_loja_roupas.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -85,7 +86,8 @@ class _MyHomePageState extends State<MyHomePage>
       "Loja de Flores",
       "Viagens",
       "Conversas",
-      "Loja de Bolsas"
+      "Loja de Bolsas",
+      "Loja de Roupas"
     ];
 
     final List<Widget> thumbnails = [
@@ -139,6 +141,23 @@ class _MyHomePageState extends State<MyHomePage>
                     image: AssetImage("assets/assets/Conversas.png")),
               ))
             : Image.asset("assets/assets/Conversas.png"),
+      ),
+      Container(
+        color: Color(0XFF3D82AE),
+        child: background == Color(0XFF3D82AE)
+            ? Container(
+                decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 120,
+                    color: Colors.black.withOpacity(0.19),
+                  ),
+                ],
+                image: DecorationImage(
+                    image: AssetImage("assets/assets/Loja_de_Bolsas.png")),
+              ))
+            : Image.asset("assets/assets/Loja_de_Bolsas.png"),
       ),
       Container(
         color: Color(0XFF3D82AE),
@@ -215,7 +234,11 @@ class _MyHomePageState extends State<MyHomePage>
                   setState(() {
                     changeBackground(Color(0XFFF44336));
                   });
-                } else if (page > 2.6) {
+                } else if (2.6 < page && page < 3.6) {
+                  setState(() {
+                    changeBackground(Color(0XFF3D82AE));
+                  });
+                } else if (page > 3.6) {
                   setState(() {
                     changeBackground(Color(0XFF3D82AE));
                   });
@@ -238,6 +261,10 @@ class _MyHomePageState extends State<MyHomePage>
                   case 3:
                     Navigator.push(context,
                         MaterialPageRoute(builder: (_) => HomeLojaBolsas()));
+                    break;
+                  case 4:
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => HomeLojaRoupas()));
                 }
               },
             ),

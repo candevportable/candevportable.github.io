@@ -23,6 +23,9 @@ dependencies:
   # app floricultura/loja de bolsas/app viagens
   flutter_svg: ^1.0.2
 
+  # app loja de roupas
+  carousel_slider: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,6 +53,10 @@ flutter:
     # app loja de bolsas
     - assets/assets_app_loja_bolsas/icons/
     - assets/assets_app_loja_bolsas/images/
+
+    # app loja de roupas
+    - assets/assets_app_loja_roupas/icons/
+    - assets/assets_app_loja_roupas/images/
 
   fonts:
     - family: "Bevan"
