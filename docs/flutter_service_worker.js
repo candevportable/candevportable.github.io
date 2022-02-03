@@ -7,7 +7,7 @@ const RESOURCES = {
 "assets/assets/assets/Conversas.png": "58ba01945dca35cfa45536aa1bbe287f",
 "assets/assets/assets/Loja_de_Bolsas.png": "a5762349e10085c0d1913a3030735f5d",
 "assets/assets/assets/Loja_de_Flores.png": "7acafcea4c127f04ba0cb2652c4c707f",
-"assets/assets/assets/Loja_de_Roupas.png": "903e486ec274a8508e8f18514e043d92",
+"assets/assets/assets/Loja_de_Roupas.png": "0b55a1428bb59eb8b4436d48aa221d00",
 "assets/assets/assets/Viagens.png": "753e36d183c246be2aea04d9e94b0057",
 "assets/assets/assets_app_conversas/greg.jpg": "b779eca12905edb571bcf6ddaad660b5",
 "assets/assets/assets_app_conversas/james.jpg": "402022abfd4b631c3093c0f2054e4a06",
@@ -72,9 +72,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "ea28b9588419eec11723526eb7ebcca1",
-"/": "ea28b9588419eec11723526eb7ebcca1",
-"main.dart.js": "fcc85ec44b54cbe6ff91ac333f0ada30",
+"index.html": "3db7abf64ab9442e5473950577092770",
+"/": "3db7abf64ab9442e5473950577092770",
+"main.dart.js": "66dcfc33f0ec0c3f5ed3d42bf0533b5d",
 "manifest.json": "4799dacd3311c6f6e3955e9d8bd21631",
 "version.json": "0eb1bf94f7d9fe4998d7abb42d8bf229"
 };
