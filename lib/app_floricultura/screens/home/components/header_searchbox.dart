@@ -4,18 +4,27 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../constants.dart';
 
 class HeaderSearchBox extends StatelessWidget {
-  const HeaderSearchBox({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
+  HeaderSearchBox(this._controller, this.size);
 
   final Size size;
+  final AnimationController _controller;
+  late Animation titleAnimation;
+  late Animation profileAnimation;
+  late Animation textFieldAnimation;
 
   @override
   Widget build(BuildContext context) {
+    titleAnimation = Tween(begin: 0.0, end: 24.0).animate(CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.0, 0.5, curve: Curves.easeOut)));
+    profileAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.0, 0.3, curve: Curves.linear)));
+    textFieldAnimation = Tween(begin: 0.0, end: 54.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.4, 0.8, curve: Curves.easeOut)));
+
     return Container(
       margin: EdgeInsets.only(bottom: kDefaultPadding * 2.5),
-      // It will cover 20% of our total height
       height: size.height * 0.2,
       child: Stack(
         children: <Widget>[
@@ -34,14 +43,14 @@ class HeaderSearchBox extends StatelessWidget {
               ),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
                   'Olá Ronaldo!',
                   style: Theme.of(context).textTheme.headline5?.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                      color: Colors.white, fontWeight: FontWeight.bold, fontSize: titleAnimation.value),
                 ),
-                Spacer(),
-                Image.asset("assets/assets_app_floricultura/images/logo.png")
+                Opacity(opacity: profileAnimation.value,child: Image.asset("assets/assets_app_floricultura/images/logo.png", ))
               ],
             ),
           ),
@@ -53,7 +62,7 @@ class HeaderSearchBox extends StatelessWidget {
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
               padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              height: 54,
+              height: textFieldAnimation.value,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),

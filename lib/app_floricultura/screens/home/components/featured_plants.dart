@@ -3,25 +3,32 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
 class FeaturedPlants extends StatelessWidget {
-  const FeaturedPlants({
-    Key? key,
-  }) : super(key: key);
+  FeaturedPlants(this._controller);
+
+  final AnimationController _controller;
+  late Animation featuredAnimation;
 
   @override
   Widget build(BuildContext context) {
+    featuredAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.75, 1.0, curve: Curves.easeOut)));
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(
-        children: <Widget>[
-          FeaturePlantCard(
-            image: "assets/assets_app_floricultura/images/bottom_img_1.png",
-            press: () {},
-          ),
-          FeaturePlantCard(
-            image: "assets/assets_app_floricultura/images/bottom_img_2.png",
-            press: () {},
-          ),
-        ],
+      child: Opacity(
+        opacity: featuredAnimation.value,
+        child: Row(
+          children: <Widget>[
+            FeaturePlantCard(
+              image: "assets/assets_app_floricultura/images/bottom_img_1.png",
+              press: () {},
+            ),
+            FeaturePlantCard(
+              image: "assets/assets_app_floricultura/images/bottom_img_2.png",
+              press: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
