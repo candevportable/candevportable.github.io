@@ -160,8 +160,8 @@ class _MyHomePageState extends State<MyHomePage>
             : Image.asset("assets/assets/Loja_de_Bolsas.png"),
       ),
       Container(
-        color: Color(0XFF3D82AE),
-        child: background == Color(0XFF3D82AE)
+        color: Color(0xFFFFBD00),
+        child: background == Color(0xFFFFBD00)
             ? Container(
                 decoration: BoxDecoration(
                 boxShadow: [
@@ -172,9 +172,9 @@ class _MyHomePageState extends State<MyHomePage>
                   ),
                 ],
                 image: DecorationImage(
-                    image: AssetImage("assets/assets/Loja_de_Bolsas.png")),
+                    image: AssetImage("assets/assets/Loja_de_Roupas.png")),
               ))
-            : Image.asset("assets/assets/Loja_de_Bolsas.png"),
+            : Image.asset("assets/assets/Loja_de_Roupas.png"),
       ),
     ];
 
@@ -217,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage>
             opacity: carousselOpacity,
             duration: Duration(seconds: 1),
             child: VerticalCardPager(
-              textStyle: TextStyle(fontFamily: "Bevan", color: Colors.black87),
+              textStyle: TextStyle(fontFamily: "Bevan", color: Colors.black.withOpacity(0.74)),
               titles: titles,
               images: thumbnails,
               initialPage: 1,
@@ -240,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage>
                   });
                 } else if (page > 3.6) {
                   setState(() {
-                    changeBackground(Color(0XFF3D82AE));
+                    changeBackground(Color(0xFFFFBD00));
                   });
                 }
               },
