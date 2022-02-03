@@ -31,19 +31,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
         });
       },
       selectedItemColor: kPrimaryColor,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.photo_outlined),
-          title: SizedBox.shrink(),
+          label: "",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.star_border),
           activeIcon: Icon(Icons.star,),
-          title: SizedBox.shrink(),
+          label: "",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.account_circle),
-          title: SizedBox.shrink(),
+          label: "",
         ),
       ],
     );
