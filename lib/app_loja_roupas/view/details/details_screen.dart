@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../model/clothes.dart';
-import 'add_cart_button.dart';
-import 'clothes_info.dart';
-import 'detail_app_bar.dart';
-import 'size_list.dart';
+import '../../model/clothes.dart';
+import 'widgets/add_cart_button.dart';
+import 'widgets/clothes_info.dart';
+import 'widgets/detail_app_bar.dart';
+import 'widgets/size_list.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailsScreen extends StatelessWidget {
   final Clothes clothes;
-  DetailPage(this.clothes);
+  DetailsScreen(this.clothes);
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../model/clothes.dart';
 import '../../../constants.dart';
-import 'detail.dart';
+import '../../details/details_screen.dart';
 
 class ClothesItem extends StatelessWidget {
   final Clothes clothes;
@@ -15,7 +15,7 @@ class ClothesItem extends StatelessWidget {
         onTap: (){
           Navigator.of(context).push(
               MaterialPageRoute(
-                  builder: (context) => DetailPage(clothes))
+                  builder: (context) => DetailsScreen(clothes))
           );
         },
         child: Card(
