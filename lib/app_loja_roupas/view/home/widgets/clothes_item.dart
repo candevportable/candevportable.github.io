@@ -54,10 +54,10 @@ class ClothesItem extends StatelessWidget {
                 ],
               ),
               Text(clothes.title!, style: TextStyle(
-                fontWeight: FontWeight.bold, height: 1.5, color: kPrimaryColor
+                fontWeight: FontWeight.bold, height: 1.5, color: Colors.black
               )),
               Text(clothes.subtitle!, style: TextStyle(
-                  fontWeight: FontWeight.bold, height: 1.5, color: kPrimaryColor
+                  fontWeight: FontWeight.bold, height: 1.5, color: Colors.black87
               )),
               Text(clothes.price!, style: TextStyle(
                   fontWeight: FontWeight.bold, height: 1.5, color: kPrimaryColor

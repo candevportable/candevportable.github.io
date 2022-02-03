@@ -33,6 +33,7 @@ class _SearchInputState extends State<SearchInput> {
       padding: EdgeInsets.all(8.0),
       selected: filters.contains(label),
       selectedColor: kPrimaryColor,
+      showCheckmark: false,
       onSelected: (bool selected) {
         setState(() {
           if (selected) {
@@ -48,6 +49,7 @@ class _SearchInputState extends State<SearchInput> {
   chipList() {
     return Wrap(
         spacing: 10.0,
+        runSpacing: 6.0,
         children: tagList.map((e) => _buildChip(e)).toList());
   }
 
@@ -90,6 +92,7 @@ class _SearchInputState extends State<SearchInput> {
               )
             ],
           ),
+          SizedBox(height: 10.0,),
           chipList()
         ],
       ),
