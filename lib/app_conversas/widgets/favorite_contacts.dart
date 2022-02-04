@@ -4,8 +4,21 @@ import '../models/message_model.dart';
 import '../screens/chat_screen.dart';
 
 class FavoriteContacts extends StatelessWidget {
+  FavoriteContacts(this._controller);
+
+  final AnimationController _controller;
+
   @override
   Widget build(BuildContext context) {
+    final Animation _favoriteAnimation = Tween(begin: 0.0, end: 120.0).animate(
+        CurvedAnimation(
+            parent: _controller,
+            curve: Interval(0.5, 0.75, curve: Curves.easeIn)));
+    final Animation _avatarAnimation = Tween(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(
+            parent: _controller,
+            curve: Interval(0.55, 0.75, curve: Curves.easeIn)));
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
@@ -36,7 +49,7 @@ class FavoriteContacts extends StatelessWidget {
             ),
           ),
           Container(
-            height: 120.0,
+            height: _favoriteAnimation.value,
             child: ListView.builder(
               padding: EdgeInsets.only(left: 10.0),
               scrollDirection: Axis.horizontal,
@@ -56,16 +69,16 @@ class FavoriteContacts extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         CircleAvatar(
-                          radius: 35.0,
+                          radius: _avatarAnimation.value * 35,
                           backgroundImage:
-                          AssetImage(favorites[index].imageUrl!),
+                              AssetImage(favorites[index].imageUrl!),
                         ),
-                        SizedBox(height: 6.0),
+                        SizedBox(height: _avatarAnimation.value * 6.0),
                         Text(
                           favorites[index].name!,
                           style: TextStyle(
                             color: Colors.blueGrey,
-                            fontSize: 16.0,
+                            fontSize: _avatarAnimation.value * 16.0,
                             fontWeight: FontWeight.w600,
                           ),
                         ),

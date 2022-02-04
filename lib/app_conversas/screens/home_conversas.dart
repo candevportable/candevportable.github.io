@@ -10,7 +10,32 @@ class HomeConversas extends StatefulWidget {
   _HomeConversasState createState() => _HomeConversasState();
 }
 
-class _HomeConversasState extends State<HomeConversas> {
+class _HomeConversasState extends State<HomeConversas>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation _titleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 4));
+    _titleAnimation = Tween(begin: 0.0, end: 28.0).animate(CurvedAnimation(
+        parent: _controller, curve: Interval(0.0, 0.25, curve: Curves.easeIn)));
+
+    _controller.forward();
+    _controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +54,7 @@ class _HomeConversasState extends State<HomeConversas> {
           child: Text(
             'Chats',
             style: TextStyle(
-              fontSize: 28.0,
+              fontSize: _titleAnimation.value,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -46,7 +71,7 @@ class _HomeConversasState extends State<HomeConversas> {
       ),
       body: Column(
         children: <Widget>[
-          CategorySelector(),
+          CategorySelector(_controller),
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -58,8 +83,8 @@ class _HomeConversasState extends State<HomeConversas> {
               ),
               child: Column(
                 children: <Widget>[
-                  FavoriteContacts(),
-                  RecentChats(),
+                  FavoriteContacts(_controller),
+                  RecentChats(_controller),
                 ],
               ),
             ),
