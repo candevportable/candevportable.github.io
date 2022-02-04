@@ -53,9 +53,35 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return _loading
-        ? Container(
-            color: Colors.white,
-            child: Lottie.asset("assets/assets/loading.json"),
+        ? Scaffold(
+            backgroundColor: Colors.white,
+            body: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 120.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "CanDev",
+                      style: TextStyle(
+                          color: Color(0XFF0A0024),
+                          fontFamily: "Neuropolitical Rg",
+                          fontSize: 64),
+                    ),
+                    Text(
+                      "portable development",
+                      style: TextStyle(
+                          color: Color(0XFF0A0024),
+                          fontFamily: "Neuropolitical Rg",
+                          fontSize: 18),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Lottie.asset("assets/assets/loading.json"),
+                  ],
+                ),
+              ),
+            ),
           )
         : MyHomePage();
   }

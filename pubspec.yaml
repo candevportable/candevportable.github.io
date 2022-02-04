@@ -63,3 +63,6 @@ flutter:
     - family: "Bevan"
       fonts:
         - asset: assets/fonts/Bevan-Regular.ttf
+    - family: "Neuropolitical Rg"
+      fonts:
+        - asset: assets/fonts/Neuropolitical_Rg.ttf

@@ -155,12 +155,12 @@ class _MyHomePageState extends State<MyHomePage>
         title: Center(
             child: Text(
               "CanDev",
-              style: TextStyle(color: Colors.black, fontFamily: "Bevan"),
+              style: TextStyle(color: Color(0XFF0A0024), fontFamily: "Neuropolitical Rg", fontSize: 26),
             )),
       ),
       body: HawkFabMenu(
         icon: AnimatedIcons.menu_close,
-        fabColor: Colors.indigoAccent,
+        fabColor: Color(0XFF0A0024),
         iconColor: Colors.white,
         items: [
           HawkFabMenuItem(
