@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "5791642a67759e28d5402976d3d9e1aa",
+  "assets/AssetManifest.json": "8c157f7191c69c5bc2f815ddf40f0f4b",
 "assets/assets/assets/Conversas.png": "58ba01945dca35cfa45536aa1bbe287f",
 "assets/assets/assets/loading.json": "1e50a17487aa8b4fc33689334e16f0b4",
 "assets/assets/assets/Loja_de_Bolsas.png": "a5762349e10085c0d1913a3030735f5d",
@@ -63,7 +63,8 @@ const RESOURCES = {
 "assets/assets/assets_app_viagens/stmarksbasilica.jpg": "d9dfdeebfc0b8d65bf8e519867838247",
 "assets/assets/assets_app_viagens/venice.jpg": "10346f88226e7c8892e95033ba5430c0",
 "assets/assets/fonts/Bevan-Regular.ttf": "c800526423a8747db3cab278dbd5244f",
-"assets/FontManifest.json": "0687bc2a44a238630823690294139f70",
+"assets/assets/fonts/Neuropolitical_Rg.ttf": "d4270acd2ddf65bf084f644346e55f4c",
+"assets/FontManifest.json": "9e6fcdcf3d8ca5364a7ee09ee0b47226",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/NOTICES": "4433febc73ca5908e8f9f0e12d4e271e",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
@@ -79,9 +80,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "426369b5dc4ab79e92004b4630061922",
-"/": "426369b5dc4ab79e92004b4630061922",
-"main.dart.js": "76fca58d6392e8abf1e01f7b86e29872",
+"index.html": "67ebacecc8d5af9816a73aad70f23101",
+"/": "67ebacecc8d5af9816a73aad70f23101",
+"main.dart.js": "42ef48003410d8b41073d75c920b90ee",
 "manifest.json": "4799dacd3311c6f6e3955e9d8bd21631",
 "version.json": "0eb1bf94f7d9fe4998d7abb42d8bf229"
 };

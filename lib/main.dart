@@ -13,9 +13,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
-  if (isWebMobile){
-    runApp(MyApp());
-  }
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
