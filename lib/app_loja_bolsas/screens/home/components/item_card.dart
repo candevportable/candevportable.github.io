@@ -20,16 +20,15 @@ class ItemCard extends StatelessWidget {
     final Animation _cardOpacityAnimation = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             parent: _controller,
-            curve: Interval(0.2, 0.4, curve: Curves.easeIn)));
-    final Animation _cardScaleAnimation = Tween(begin: 4.0, end: 1.0).animate(
-        CurvedAnimation(
+            curve: Interval(0.4, 0.6, curve: Curves.easeIn)));
+    final Animation<double> _cardScaleAnimation =         CurvedAnimation(
             parent: _controller,
-            curve: Interval(0.3, 0.75, curve: Curves.easeOut)));
+            curve: Interval(0.6, 0.8, curve: Curves.easeOut));
     final Animation _cardColorAnimation =
         ColorTween(begin: Colors.white, end: product.color).animate(
             CurvedAnimation(
                 parent: _controller,
-                curve: Interval(0.75, 1.0, curve: Curves.easeIn)));
+                curve: Interval(0.8, 1.0, curve: Curves.easeIn)));
 
     return GestureDetector(
       onTap: press,
@@ -47,9 +46,11 @@ class ItemCard extends StatelessWidget {
                 ),
                 child: Hero(
                   tag: "${product.id}",
-                  child: Image.asset(
-                    product.image,
-                    scale: _cardScaleAnimation.value,
+                  child: ScaleTransition(
+                    scale: _cardScaleAnimation,
+                    child: Image.asset(
+                      product.image,
+                    ),
                   ),
                 ),
               ),
