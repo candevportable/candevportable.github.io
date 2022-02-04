@@ -123,12 +123,18 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: Center(
-          child: Text(
-            widget.user.name!,
-            style: TextStyle(
-              fontSize: 28.0,
-              fontWeight: FontWeight.bold,
-            ),
+          child: Row(
+            children: [
+              Hero(tag: widget.user.imageUrl!,child: CircleAvatar(radius: 20.0, backgroundImage: AssetImage(widget.user.imageUrl!),)),
+              SizedBox(width: 10.0,),
+              Text(
+                widget.user.name!,
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
         elevation: 0.0,
