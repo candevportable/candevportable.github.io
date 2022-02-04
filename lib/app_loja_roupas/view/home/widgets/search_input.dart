@@ -4,13 +4,20 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
 class SearchInput extends StatefulWidget {
+  SearchInput(this._controller);
+
+  final AnimationController _controller;
+
   @override
-  State<SearchInput> createState() => _SearchInputState();
+  State<SearchInput> createState() => _SearchInputState(_controller);
 }
 
 class _SearchInputState extends State<SearchInput> {
-  final tagList = ['Feminino', 'Camiseta', 'Casaco', 'Masculino', 'Vestido'];
+  _SearchInputState(this._controller);
 
+  final AnimationController _controller;
+
+  final tagList = ['Feminino', 'Camiseta', 'Casaco', 'Masculino', 'Vestido'];
   List<String> filters = <String>['Casaco'];
 
   Widget _buildChip(String label) {
@@ -47,52 +54,70 @@ class _SearchInputState extends State<SearchInput> {
   }
 
   chipList() {
-    return Wrap(
-        spacing: 10.0,
-        runSpacing: 6.0,
-        children: tagList.map((e) => _buildChip(e)).toList());
+    final Animation _chipsAnimation = Tween(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(
+            parent: _controller,
+            curve: Interval(0.4, 0.6, curve: Curves.easeIn)));
+
+    return Opacity(
+      opacity: _chipsAnimation.value,
+      child: Wrap(
+          spacing: 10.0,
+          runSpacing: 6.0,
+          children: tagList.map((e) => _buildChip(e)).toList()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final Animation _searchAnimation = Tween(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(
+            parent: _controller,
+            curve: Interval(0.2, 0.4, curve: Curves.easeIn)));
+
     return Container(
       margin: EdgeInsets.only(top: 25, right: 25, left: 25),
       child: Column(
         children: [
-          Row(
-            children: [
-              Flexible(
-                flex: 1,
-                child: TextField(
-                  cursorColor: Colors.grey,
-                  decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none),
-                      hintText: 'Buscar',
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
-                      prefixIcon: Container(
-                        padding: EdgeInsets.all(15),
-                        child: Image.asset(
-                            'assets/assets_app_loja_roupas/icons/search.png',
-                            width: 20),
-                      )),
+          Opacity(
+            opacity: _searchAnimation.value,
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: TextField(
+                    cursorColor: Colors.grey,
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide.none),
+                        hintText: 'Buscar',
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+                        prefixIcon: Container(
+                          padding: EdgeInsets.all(15),
+                          child: Image.asset(
+                              'assets/assets_app_loja_roupas/icons/search.png',
+                              width: 20),
+                        )),
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 10),
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(15)),
-                child: Image.asset(
-                    'assets/assets_app_loja_roupas/icons/filter.png',
-                    width: 25),
-              )
-            ],
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      color: kPrimaryColor,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Image.asset(
+                      'assets/assets_app_loja_roupas/icons/filter.png',
+                      width: 25),
+                )
+              ],
+            ),
           ),
-          SizedBox(height: 10.0,),
+          SizedBox(
+            height: 10.0,
+          ),
           chipList()
         ],
       ),
