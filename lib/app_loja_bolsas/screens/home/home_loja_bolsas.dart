@@ -4,12 +4,29 @@ import 'package:flutter_svg/svg.dart';
 import '../../constants.dart';
 import './components/body.dart';
 
-class HomeLojaBolsas extends StatelessWidget {
+class HomeLojaBolsas extends StatefulWidget {
+  @override
+  State<HomeLojaBolsas> createState() => _HomeLojaBolsasState();
+}
+
+class _HomeLojaBolsasState extends State<HomeLojaBolsas> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 4));
+    _controller.forward();
+    _controller.addListener(() {
+      setState(() { });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
+      body: Body(_controller),
     );
   }
 
