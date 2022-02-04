@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutter/foundation.dart';
 
 import 'my_home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final isWebMobile = kIsWeb &&
+      (defaultTargetPlatform == TargetPlatform.iOS ||
+          defaultTargetPlatform == TargetPlatform.android);
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
-  runApp(MyApp());
+  if (isWebMobile){
+    runApp(MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
