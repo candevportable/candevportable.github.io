@@ -4,20 +4,20 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:hawk_fab_menu/hawk_fab_menu.dart';
 
-import 'app_conversas/screens/home_conversas.dart';
-import 'app_loja_bolsas/screens/home/home_loja_bolsas.dart';
-import 'app_floricultura/screens/home/home_floricultura.dart';
-import 'app_viagens/screens/home_viagens.dart';
-import 'app_loja_roupas/view/home/home_loja_roupas.dart';
+import '../app_conversas/screens/home_conversas.dart';
+import '../app_loja_bolsas/screens/home/home_loja_bolsas.dart';
+import '../app_floricultura/screens/home/home_floricultura.dart';
+import '../app_viagens/screens/home_viagens.dart';
+import '../app_loja_roupas/view/home/home_loja_roupas.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MobileHomePage extends StatefulWidget {
+  const MobileHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MobileHomePage> createState() => _MobileHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
+class _MobileHomePageState extends State<MobileHomePage>
     with SingleTickerProviderStateMixin {
   Color background = Colors.white;
   double carousselOpacity = 0.0;
