@@ -23,12 +23,12 @@ class _HomeFloriculturaState extends State<HomeFloricultura>
     super.initState();
 
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 4));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
 
     menuAnimation = Tween(begin: 0.0, end: 24.0).animate(CurvedAnimation(
         parent: _controller, curve: Interval(0.0, 0.4, curve: Curves.easeOut)));
 
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(milliseconds: 2500), () {
       setState(() {
         _plant = !_plant;
       });

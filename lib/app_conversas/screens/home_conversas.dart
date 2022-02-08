@@ -20,7 +20,7 @@ class _HomeConversasState extends State<HomeConversas>
     super.initState();
 
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 4));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
     _titleAnimation = Tween(begin: 0.0, end: 28.0).animate(CurvedAnimation(
         parent: _controller, curve: Interval(0.0, 0.25, curve: Curves.easeIn)));
 

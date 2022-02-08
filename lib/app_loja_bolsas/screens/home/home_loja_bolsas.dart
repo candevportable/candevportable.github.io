@@ -15,7 +15,7 @@ class _HomeLojaBolsasState extends State<HomeLojaBolsas> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: Duration(seconds: 4));
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 2));
     _controller.forward();
     _controller.addListener(() {
       setState(() { });

@@ -64,7 +64,7 @@ class _HomeViagensState extends State<HomeViagens>
     super.initState();
 
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 4));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
 
     _titleAnimation = Tween(begin: 0.0, end: 30.0).animate(CurvedAnimation(
         parent: _controller, curve: Interval(0.0, 0.3, curve: Curves.easeOut)));
@@ -75,7 +75,7 @@ class _HomeViagensState extends State<HomeViagens>
     _iconAnimation = Tween(begin: 0.0, end: 25.0).animate(CurvedAnimation(
         parent: _controller, curve: Interval(0.3, 0.6, curve: Curves.easeOut)));
 
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(milliseconds: 3700), () {
       setState(() {
         _airplane = !_airplane;
       });

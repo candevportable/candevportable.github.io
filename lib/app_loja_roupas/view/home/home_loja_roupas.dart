@@ -20,7 +20,7 @@ class _HomeLojaRoupasState extends State<HomeLojaRoupas>
   void initState() {
     super.initState();
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 4));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
     _controller.forward();
     _controller.addListener(() {
       setState(() {});
