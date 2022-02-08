@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
@@ -173,10 +172,9 @@ class _HomeViagensState extends State<HomeViagens>
                   title: SizedBox.shrink(),
                 ),
                 BottomNavigationBarItem(
-                  icon: CircleAvatar(
-                    radius: 15.0,
-                    backgroundImage:
-                        NetworkImage('http://i.imgur.com/zL4Krbz.jpg'),
+                  icon: Icon(
+                    Icons.account_circle,
+                    size: 30.0,
                   ),
                   title: SizedBox.shrink(),
                 )
