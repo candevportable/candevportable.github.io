@@ -27,8 +27,8 @@ class _HomeViagensState extends State<HomeViagens>
   final List<IconData> _icons = [
     FontAwesomeIcons.plane,
     FontAwesomeIcons.bed,
-    FontAwesomeIcons.walking,
-    FontAwesomeIcons.biking,
+    FontAwesomeIcons.personWalking,
+    FontAwesomeIcons.personBiking,
   ];
 
   Widget _buildIcon(int index) {
@@ -162,21 +162,21 @@ class _HomeViagensState extends State<HomeViagens>
                     Icons.search,
                     size: 30.0,
                   ),
-                  title: SizedBox.shrink(),
+                  label: "",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.local_pizza,
                     size: 30.0,
                   ),
-                  title: SizedBox.shrink(),
+                    label: "",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.account_circle,
                     size: 30.0,
                   ),
-                  title: SizedBox.shrink(),
+                  label: "",
                 )
               ],
             ),

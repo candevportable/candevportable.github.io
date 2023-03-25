@@ -40,10 +40,17 @@ class AddToCart extends StatelessWidget {
           Expanded(
             child: SizedBox(
               height: 50,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18)),
-                color: product.color,
+              child: FilledButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                  ),
+                  backgroundColor: MaterialStateProperty.all(
+                    product.color,
+                  ),
+                ),
                 onPressed: () {},
                 child: Text(
                   "Compre  Agora".toUpperCase(),
