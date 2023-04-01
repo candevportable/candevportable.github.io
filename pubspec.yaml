@@ -1,4 +1,4 @@
-name: candev_portfolio
+name: Candev
 description: A new Flutter Web and gh-pages project.
 
 publish_to: 'none'
@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  google_fonts: ^4.0.3
   cupertino_icons: ^1.0.5
   vertical_card_pager: ^1.5.0
   hawk_fab_menu: ^1.2.0
@@ -32,7 +33,25 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.1
+  flutter_launcher_icons: ^0.12.0
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/assets/logo-CD-Candev.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/assets/logo-CD-Candev.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/assets/logo-CD-Candev.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/assets/logo-CD-Candev.png"
 
 flutter:
 

@@ -4,6 +4,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:hawk_fab_menu/hawk_fab_menu.dart';
 
+import '../screens/about_us.dart';
+import '../screens/how_it_works.dart';
+import '../screens/our_services.dart';
 import '../app_conversas/screens/home_conversas.dart';
 import '../app_loja_bolsas/screens/home/home_loja_bolsas.dart';
 import '../app_floricultura/screens/home/home_floricultura.dart';
@@ -29,7 +32,7 @@ class _MobileHomePageState extends State<MobileHomePage>
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 1300), () {
+    Future.delayed(const Duration(milliseconds: 1300), () {
       setState(() {
         carousselOpacity = 1;
       });
@@ -42,10 +45,39 @@ class _MobileHomePageState extends State<MobileHomePage>
   }
 
   launchURL(url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Could not launch $url';
+    }
+  }
+
+  void actionHandleClick(int item) {
+    switch (item) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const AboutUs(),
+          ),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const OurServices(),
+          ),
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const HowItWorks(),
+          ),
+        );
+        break;
     }
   }
 
@@ -61,88 +93,88 @@ class _MobileHomePageState extends State<MobileHomePage>
 
     final List<Widget> thumbnails = [
       Container(
-        color: Color(0XFF0C9869),
-        child: background == Color(0XFF0C9869)
+        color: const Color(0XFF0C9869),
+        child: background == const Color(0XFF0C9869)
             ? Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 120,
-                  color: Colors.black.withOpacity(0.19),
-                ),
-              ],
-              image: DecorationImage(
-                  image: AssetImage("assets/assets/Loja_de_Flores.png")),
-            ))
+                decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 10),
+                    blurRadius: 120,
+                    color: Colors.black.withOpacity(0.19),
+                  ),
+                ],
+                image: const DecorationImage(
+                    image: AssetImage("assets/assets/Loja_de_Flores.png")),
+              ))
             : Image.asset("assets/assets/Loja_de_Flores.png"),
       ),
       Container(
         color: Colors.white,
         child: background == Colors.white
             ? Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 120,
-                  color: Colors.black.withOpacity(0.19),
-                ),
-              ],
-              image: DecorationImage(
-                  image: AssetImage("assets/assets/Viagens.png")),
-            ))
+                decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 10),
+                    blurRadius: 120,
+                    color: Colors.black.withOpacity(0.19),
+                  ),
+                ],
+                image: const DecorationImage(
+                    image: AssetImage("assets/assets/Viagens.png")),
+              ))
             : Image.asset("assets/assets/Viagens.png"),
       ),
       Container(
-        color: Color(0XFFF44336),
-        child: background == Color(0XFFF44336)
+        color: const Color(0XFFF44336),
+        child: background == const Color(0XFFF44336)
             ? Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 120,
-                  color: Colors.black.withOpacity(0.19),
-                ),
-              ],
-              image: DecorationImage(
-                  image: AssetImage("assets/assets/Conversas.png")),
-            ))
+                decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 10),
+                    blurRadius: 120,
+                    color: Colors.black.withOpacity(0.19),
+                  ),
+                ],
+                image: const DecorationImage(
+                    image: AssetImage("assets/assets/Conversas.png")),
+              ))
             : Image.asset("assets/assets/Conversas.png"),
       ),
       Container(
-        color: Color(0XFF3D82AE),
-        child: background == Color(0XFF3D82AE)
+        color: const Color(0XFF3D82AE),
+        child: background == const Color(0XFF3D82AE)
             ? Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 120,
-                  color: Colors.black.withOpacity(0.19),
-                ),
-              ],
-              image: DecorationImage(
-                  image: AssetImage("assets/assets/Loja_de_Bolsas.png")),
-            ))
+                decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 10),
+                    blurRadius: 120,
+                    color: Colors.black.withOpacity(0.19),
+                  ),
+                ],
+                image: const DecorationImage(
+                    image: AssetImage("assets/assets/Loja_de_Bolsas.png")),
+              ))
             : Image.asset("assets/assets/Loja_de_Bolsas.png"),
       ),
       Container(
-        color: Color(0xFFFFBD00),
-        child: background == Color(0xFFFFBD00)
+        color: const Color(0xFFFFBD00),
+        child: background == const Color(0xFFFFBD00)
             ? Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 120,
-                  color: Colors.black.withOpacity(0.19),
-                ),
-              ],
-              image: DecorationImage(
-                  image: AssetImage("assets/assets/Loja_de_Roupas.png")),
-            ))
+                decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 10),
+                    blurRadius: 120,
+                    color: Colors.black.withOpacity(0.19),
+                  ),
+                ],
+                image: const DecorationImage(
+                    image: AssetImage("assets/assets/Loja_de_Roupas.png")),
+              ))
             : Image.asset("assets/assets/Loja_de_Roupas.png"),
       ),
     ];
@@ -152,17 +184,51 @@ class _MobileHomePageState extends State<MobileHomePage>
       appBar: AppBar(
         backgroundColor: background,
         elevation: 0,
-        title: Center(
-            child: Text(
-              "CanDev",
-              style: TextStyle(color: Color(0XFF0A0024), fontFamily: "Neuropolitical Rg", fontSize: 26),
-            )),
+        centerTitle: true,
+        title: const Text(
+          "CanDev",
+          style: TextStyle(
+              color: Color(0XFF0A0024),
+              fontFamily: "Neuropolitical Rg",
+              fontSize: 26),
+        ),
+        actions: <Widget>[
+          PopupMenuButton<int>(
+            icon: const Icon(
+              Icons.more_vert,
+              color: Color(0XFF0A0024),
+            ),
+            onSelected: (item) => actionHandleClick(item),
+            itemBuilder: (context) => [
+              const PopupMenuItem<int>(
+                value: 0,
+                child: Text('Sobre Nós'),
+              ),
+              const PopupMenuItem<int>(
+                value: 1,
+                child: Text('Nossos Serviços'),
+              ),
+              const PopupMenuItem<int>(
+                value: 2,
+                child: Text('Como Funciona'),
+              ),
+            ],
+          ),
+        ],
       ),
       body: HawkFabMenu(
         icon: AnimatedIcons.menu_close,
-        fabColor: Color(0XFF0A0024),
+        fabColor: const Color(0XFF0A0024),
         iconColor: Colors.white,
         items: [
+          HawkFabMenuItem(
+            label: 'Instagram',
+            ontap: () {
+              launchURL("https://instagram.com/candev.app");
+            },
+            icon: const Icon(FontAwesomeIcons.instagram),
+            color: Theme.of(context).primaryColor,
+          ),
           HawkFabMenuItem(
             label: 'WhatsApp',
             ontap: () {
@@ -177,23 +243,24 @@ class _MobileHomePageState extends State<MobileHomePage>
             ontap: () {
               launchURL("https://t.me/pdanniel");
             },
-            icon: const Icon(FontAwesomeIcons.telegramPlane),
+            icon: const Icon(FontAwesomeIcons.telegram),
             color: Theme.of(context).primaryColor,
           ),
         ],
         body: SafeArea(
           child: AnimatedOpacity(
             opacity: carousselOpacity,
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
             child: VerticalCardPager(
-              textStyle: TextStyle(fontFamily: "Bevan", color: Colors.black.withOpacity(0.74)),
+              textStyle: TextStyle(
+                  fontFamily: "Bevan", color: Colors.black.withOpacity(0.74)),
               titles: titles,
               images: thumbnails,
               initialPage: 1,
               onPageChanged: (page) {
                 if (page! < 0.6) {
                   setState(() {
-                    changeBackground(Color(0XFF0C9869));
+                    changeBackground(const Color(0XFF0C9869));
                   });
                 } else if (0.6 < page && page < 1.6) {
                   setState(() {
@@ -201,15 +268,15 @@ class _MobileHomePageState extends State<MobileHomePage>
                   });
                 } else if (1.6 < page && page < 2.6) {
                   setState(() {
-                    changeBackground(Color(0XFFF44336));
+                    changeBackground(const Color(0XFFF44336));
                   });
                 } else if (2.6 < page && page < 3.6) {
                   setState(() {
-                    changeBackground(Color(0XFF3D82AE));
+                    changeBackground(const Color(0XFF3D82AE));
                   });
                 } else if (page > 3.6) {
                   setState(() {
-                    changeBackground(Color(0xFFFFBD00));
+                    changeBackground(const Color(0xFFFFBD00));
                   });
                 }
               },
