@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 
-import 'mobile/mobile_app.dart';
+import '/mobile_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
