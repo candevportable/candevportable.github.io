@@ -20,6 +20,12 @@ dependencies:
   lottie: ^2.3.0
   wordpress_client: ^6.3.4
   flutter_html: 3.0.0-alpha.6
+  mobx: ^2.1.4
+  flutter_mobx: ^2.0.6+5
+  mobx_codegen: ^2.1.1
+  firebase_core: ^2.9.0
+  firebase_auth: ^4.4.0
+  cloud_firestore: ^4.5.0
 
   # app viagens
   font_awesome_flutter: ^10.4.0
