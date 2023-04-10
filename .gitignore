@@ -2,6 +2,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/androidstudio,dart,flutter
 # Edit at https://www.toptal.com/developers/gitignore?templates=androidstudio,dart,flutter
 
+### Firebase ###
+lib/firebase_options.dart
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
+
+
 ### Dart ###
 # See https://www.dartlang.org/guides/libraries/private-files
 
