@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:candev_portfolio/mobile/mobile_app.dart';
+import 'package:Candev/mobile_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
