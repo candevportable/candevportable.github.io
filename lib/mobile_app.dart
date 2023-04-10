@@ -55,16 +55,18 @@ class _WelcomeState extends State<Welcome> {
                     const Text(
                       "CanDev",
                       style: TextStyle(
-                          color: Color(0XFF0A0024),
-                          fontFamily: "Neuropolitical Rg",
-                          fontSize: 64),
+                        color: Color(0XFF0A0024),
+                        fontFamily: "Neuropolitical Rg",
+                        fontSize: 64,
+                      ),
                     ),
                     const Text(
                       "portable development",
                       style: TextStyle(
-                          color: Color(0XFF0A0024),
-                          fontFamily: "Neuropolitical Rg",
-                          fontSize: 18),
+                        color: Color(0XFF0A0024),
+                        fontFamily: "Neuropolitical Rg",
+                        fontSize: 18,
+                      ),
                     ),
                     const SizedBox(
                       height: 20.0,

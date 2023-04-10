@@ -24,8 +24,10 @@ class _BlogState extends State<Blog> {
   }
 
   Future<Post>? _loadContent() async {
-    WordpressClient client =
-        WordpressClient.initialize('http://candev.x10.bz/', 'wp/wp-json/wp/v2');
+    WordpressClient client = WordpressClient.initialize(
+      'http://candev.x10.bz/',
+      'wp/wp-json/wp/v2',
+    );
 
     postsResponse = await client.posts.list(
       WordpressRequest(
